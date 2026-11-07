@@ -1,0 +1,184 @@
+# ============================================================
+# 系统与编辑器产生的垃圾文件
+# ============================================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.swp
+*.swo
+*~
+
+# ============================================================
+# IDE / 编辑器配置（本地个性化设置，不进版本库）
+# ============================================================
+.vscode/
+.idea/
+.fleet/
+.history/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+
+# ============================================================
+# Python
+# ============================================================
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+*.cover
+pip-log.txt
+
+# ============================================================
+# 测试 / 自动化产物（pytest、allure、playwright、selenium 等）
+# ============================================================
+allure-results/
+allure-report/
+report/
+reports/
+test-results/
+playwright-report/
+test-output/
+.pytest_cache/
+*.html
+!templates/**/*.html
+screenshots/
+*.png
+!docs/**/*.png
+*.mp4
+*.webm
+trace.zip
+
+# ============================================================
+# Node / 前端
+# ============================================================
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tsbuildinfo
+.next/
+.nuxt/
+.svelte-kit/
+coverage/
+
+# ============================================================
+# Java / Kotlin / Android / Gradle
+# 注意：不忽略 *.jar，gradle-wrapper.jar 需要提交
+# ============================================================
+.gradle/
+.kotlin/
+.cxx/
+build/
+out/
+local.properties
+captures/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# ============================================================
+# 构建产物 / 发布包 / 二进制
+# ============================================================
+dist/
+*.exe
+*.msi
+*.dll
+*.so
+*.dylib
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+
+# ============================================================
+# 日志 / 临时 / 备份 / 下载
+# ============================================================
+*.log
+logs/
+log/
+tmp/
+temp/
+.cache/
+*.tmp
+*.bak
+*.orig
+*.old
+*.pid
+build_log.txt
+downloads/
+download/
+
+# ============================================================
+# 密钥 / 环境变量 / 凭据（严禁提交）
+# ============================================================
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+secrets/
+credentials*
+*.local
+
+# ============================================================
+# 医疗/业务数据与导出文件（含敏感信息，默认不提交）
+# 如需提交测试数据，用 ! 显式放行，例如 !tests/data/*.csv
+# ============================================================
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.dump
+*.sql.gz
+*.sql.bak
+*.xlsx
+*.xls
+*.csv
+*.json.gz
+exports/
+data/output/
+# main.py / evaluate.py 的运行产物（CSV：result*.csv / evaluation.csv / review_auto.csv）
+results/
+# 重构前「问答版」源码备份，仅本地留存，不纳入版本管理
+legacy_qa/
+
+# 注意：人工核对表.md 是任务 6 的交付物，放在项目根目录，故意不忽略（应提交/查看）
+# 另注意：gitignore 不支持「行内注释」，注释必须单独占一行，
+# 否则 `#` 及其后的文字会被当成模式的一部分，导致该行规则静默失效。
+
+# ============================================================
+# AI 工具 / 工作台本地状态（含个人记忆与会话数据，仅忽略不删除）
+# 如需纳入版本管理，删除下面这一行即可
+# ============================================================
+.workbuddy/

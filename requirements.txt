@@ -1,0 +1,14 @@
+# 医保飞检通报「六要素」结构化抽取 - 依赖
+# 安装：python -m pip install -r requirements.txt
+#
+# 最小可用集合：openai 提供 OpenAI 兼容协议的调用能力
+# （DeepSeek / 通义千问 / 混元 / Moonshot / 本地网关等均支持该协议，
+#   只需在 .env 里设置 LLM_BASE_URL 和 LLM_MODEL_NAME）。
+# python-dotenv 只用于把 .env 加载成环境变量；未安装时脚本会退化为
+# 只读系统环境变量，--dry-run 本地桩完全零依赖。
+openai>=1.40,<3
+python-dotenv>=1.0,<2
+
+# 其余脚本（mock_data / prompts / schema / main / evaluate）只用标准库。
+# 可选：仅本地开发/调试用
+# pytest>=8.0
