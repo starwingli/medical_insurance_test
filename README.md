@@ -102,12 +102,13 @@ python evaluate.py
 导致重试全部无效。`main.py` 启动时会调用 `/models` 做预检并秒级报错：
 
 ```
-配置错误：服务端不存在模型 'deepseek-chat'。
+配置错误：服务端不存在模型 'global:hy4free'。
   可用模型（共 35 个，列出前 15 个）： ...
 ```
 
-本环境网关的模型 id 全部带 `global:` 前缀（`global:default-model` / `global:hy4free` / …）。
-**换 `LLM_BASE_URL` 后必须重新核对模型 id**。真·临时故障由 `MAX_RETRIES=3` +
+本环境网关的模型 id 带线路前缀，当前配置使用 `cn:` 线路（`cn:hy4free`）；
+若切回 `global:` 线路（`global:default-model` / `global:hy4free` / …），需同步修改 `LLM_MODEL_NAME`。
+**换 `LLM_BASE_URL` 或线路后必须重新核对模型 id**。真·临时故障由 `MAX_RETRIES=3` +
 退避 1s/2s/4s 兜底，失败写 `error` 列，评估标 `运行次数不足`，不污染一致性统计。
 
 ### ⚠️ 推理模型与 `MAX_TOKENS`
@@ -117,7 +118,7 @@ python evaluate.py
 `message.content=''` 的「调用成功却无正文」——CSV 里 `raw_response` 和 `error` 都为空的幽灵行。
 `config.MAX_TOKENS` 已设为 `4096` 兼容推理型模型（普通模型只生成几十 token，无副作用）；
 `main.py` 另外对空正文做硬检测并转成可重试错误，在 `error` 列留下诊断线索。
-若仍出现该现象，优先调大 `MAX_TOKENS`，或改用 `global:default-model` / `*-flash` 等非推理模型。
+若仍出现该现象，优先调大 `MAX_TOKENS`，或改用 `*-flash` 等非推理模型（可用 `--list-models` 查询）。
 
 ## 五、参数
 

@@ -7,7 +7,7 @@
 
     LLM_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxx
     LLM_BASE_URL=http://127.0.0.1:7863/v1
-    LLM_MODEL_NAME=global:default-model
+    LLM_MODEL_NAME=cn:hy4free
     LLM_RUN_TIMES=3
 
 本项目的任务：从一条「医保基金飞行检查通报（虚构脱敏）」里抽取六要素，输出严格 JSON。
@@ -72,11 +72,11 @@ ENUMS = {
 # ---------- 模型与凭据 ----------
 API_KEY = os.getenv("LLM_API_KEY", "").strip()
 BASE_URL = os.getenv("LLM_BASE_URL", "").strip() or None
-MODEL_NAME = os.getenv("LLM_MODEL_NAME", "deepseek-chat").strip()
+MODEL_NAME = os.getenv("LLM_MODEL_NAME", "cn:hy4free").strip()
 
 # ---------- 调用参数 ----------
 TEMPERATURE = 0.0          # 任务要求：固定为 0，尽量消除随机性
-# 给足输出预算：推理型模型（如本网关的 global:hy4free，实际后端 hy4）会先把
+# 给足输出预算：推理型模型（如本网关的 cn:hy4free，实际后端 hy4）会先把
 # token 消耗在 reasoning_tokens 上，512 时会出现 finish_reason=length、
 # message.content='' 的「空正文」现象，导致校验器只看到空响应却无 error。
 # 4096 对普通模型只是上限（实际只生成几十 token），无副作用；兼容推理型模型。
